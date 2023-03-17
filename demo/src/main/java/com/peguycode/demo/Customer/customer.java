@@ -12,9 +12,11 @@ import jakarta.validation.constraints.Size;
 @Entity
 @Table
 public class customer {
+
     @Id
     private  Long id;
     @NotBlank
+
     private  String name;
     @NotBlank(message = "password is compulsory")
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)

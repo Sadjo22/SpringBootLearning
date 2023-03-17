@@ -32,7 +32,12 @@ public class CustomerControllerV2 {
         return customerService.getCustomer(id);
     }
 
-    /*@GetMapping("{customerId}")
+    /*@GetMapping("{customerName}")
+    public customer getCustomer1(@PathVariable("customerName") String name){
+        return customerService.getCustomerByName(name);
+    }*/
+
+   /* @GetMapping("{customerId}")
     public List<customer> getCustomersOrderByName(@PathVariable("customerId") Long id){
         return customerService.getCustomersOrdersByName(id);
     }*/
