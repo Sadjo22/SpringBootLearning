@@ -30,6 +30,7 @@ public class CustomerService {
     }
 
     public customer getCustomer(Long id){
+
         LOGGER.info("getCustomer was call");
         return customerRepo
                 .findById(id)

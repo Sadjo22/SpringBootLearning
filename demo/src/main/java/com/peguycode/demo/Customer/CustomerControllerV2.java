@@ -2,6 +2,7 @@ package com.peguycode.demo.Customer;
 
 
 import com.peguycode.demo.exception.ApiRequestException;
+import com.rollbar.notifier.Rollbar;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -12,10 +13,12 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
+
 @RequestMapping(path = "api/v2/customers")
 @RestController
 public class CustomerControllerV2 {
     private final CustomerService customerService;
+    // Add you class and method definitions
 
     @Autowired
     public CustomerControllerV2(CustomerService customerService) {
