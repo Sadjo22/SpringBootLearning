@@ -3,8 +3,9 @@ package com.peguycode.demo.jsonplaceholder;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
 
-
+@Data
 public class Post {
 
     private final Integer userId;
@@ -13,7 +14,7 @@ public class Post {
     private final String title;
     private final String body;
 
-    public Post(Integer userId, Integer id, String title, String body) {
+ /*   public Post(Integer userId, Integer id, String title, String body) {
         this.userId = userId;
         this.id = id;
         this.title = title;
@@ -44,5 +45,5 @@ public class Post {
                 ", title='" + title + '\'' +
                 ", body='" + body + '\'' +
                 '}';
-    }
+    }*/
 }

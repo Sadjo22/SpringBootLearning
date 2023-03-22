@@ -1,5 +1,6 @@
 package com.peguycode.demo.infoapp;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.Configuration;
@@ -8,13 +9,14 @@ import org.springframework.stereotype.Component;
 
 @Configuration
 @ConfigurationProperties(prefix = "info.app")
+@Data
 public class InfoApp {
     private  String name;
     private  String description;
 
     private  String version;
 
-    public String getName() {
+   /* public String getName() {
         return name;
     }
 
@@ -45,5 +47,5 @@ public class InfoApp {
                 ", description='" + description + '\'' +
                 ", version='" + version + '\'' +
                 '}';
-    }
+    }*/
 }

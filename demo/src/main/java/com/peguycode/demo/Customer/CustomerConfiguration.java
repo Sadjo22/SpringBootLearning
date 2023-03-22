@@ -18,11 +18,11 @@ public class CustomerConfiguration {
     private String companyName;
 
     @Bean
-    CommandLineRunner commandLineRunner(InfoApp app){
+    CommandLineRunner commandLineRunner(){
         return args -> {
             System.out.println("useFakeCustomerRepo = " + useFakeCustomerRepo);
             System.out.println("info.company.name = " + companyName);
-            System.out.println("infoApp = " + app);
+            //System.out.println("infoApp = " + app);
         };
     }
     @Bean

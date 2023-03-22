@@ -9,8 +9,15 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 @Entity
 @Table
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class customer {
 
     @Id
@@ -21,18 +28,7 @@ public class customer {
     @NotBlank(message = "password is compulsory")
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String password;
-
     private String email;
-    public customer(Long id, String name, String password, String email) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.email = email;
-    }
-
-    public customer() {
-
-    }
 
     @JsonProperty("customerId")
     public Long getId() {
@@ -54,13 +50,5 @@ public class customer {
         return email;
     }
 
-    @Override
-    public String toString() {
-        return "customer{" +
-                "id=" + id +
-                ", name='" + name +
-                ", password='" + password +
-                ", email='" + email + '\'' +
-                '}';
-    }
+
 }

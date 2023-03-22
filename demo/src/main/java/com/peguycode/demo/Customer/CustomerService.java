@@ -1,6 +1,8 @@
 package com.peguycode.demo.Customer;
 
 import com.peguycode.demo.exception.NotFoundException;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,30 +15,27 @@ import java.util.function.Supplier;
 
 @Service
 @Primary
+@AllArgsConstructor
+@Slf4j
 public class CustomerService {
 
-    private final  static Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
+   // private final  static Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
 
     private final CustomerRepository customerRepo;
 
-    @Autowired
-    public CustomerService(CustomerRepository customerRepo){
-        this.customerRepo = customerRepo;
-    }
-
-    List<customer> getCustomers(){
-        LOGGER.info("getCustomers was call");
+    public List<customer> getCustomers(){
+        log.info("getCustomers was call");
         return customerRepo.findAll();
     }
 
     public customer getCustomer(Long id){
 
-        LOGGER.info("getCustomer was call");
+        log.info("getCustomer was call");
         return customerRepo
                 .findById(id)
                 .orElseThrow(()->{
                     NotFoundException notFoundException= new NotFoundException("customer with id " + id +" not found");
-                    LOGGER.error("error in getting customer {}", id, notFoundException);
+                    log.error("error in getting customer {}", id, notFoundException);
                     return notFoundException;
                 });
 

@@ -4,6 +4,7 @@ package com.peguycode.demo.Customer;
 import com.peguycode.demo.exception.ApiRequestException;
 import com.rollbar.notifier.Rollbar;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -16,14 +17,15 @@ import java.util.function.Supplier;
 
 @RequestMapping(path = "api/v2/customers")
 @RestController
+@AllArgsConstructor
 public class CustomerControllerV2 {
     private final CustomerService customerService;
     // Add you class and method definitions
 
-    @Autowired
+    /*@Autowired
     public CustomerControllerV2(CustomerService customerService) {
         this.customerService = customerService;
-    }
+    }*/
 
     @GetMapping
     public List<customer> getCustomers(){
