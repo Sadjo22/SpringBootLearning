@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @DataJpaTest
+@ComponentScan(basePackages = "com.peguycode.demo")
 public class CustomerServiceTest {
 
     @Autowired
@@ -32,20 +34,22 @@ public class CustomerServiceTest {
         customerRepository.deleteAll();
     }
 
-   /* @Test
+    @Test
     void GetCustomers(){
         customer Jamila = new customer(1L,"Jamila","jamitest","jamila@gmail.com");
         customer mila = new customer(2L,"mila","milatest","mila@gmail.com");
+        customer milan = new customer(3L,"milan","milantest","milan@gmail.com");
 
         customerRepository.save(Jamila);
         customerRepository.save(mila);
+        customerRepository.save(milan);
 
         List<customer> customerList = underTest.getCustomers();
-        assertEquals(2,customerList.size());
+        assertEquals(3,customerList.size());
 
-    }*/
+    }
 
-   /* @Test
+    @Test
     void getCustomer(){
         customer Jamila = new customer(1L,"Jamila","jamitest","jamila@gmail.com");
 
@@ -57,5 +61,5 @@ public class CustomerServiceTest {
         assertEquals("jamitest",actual.getPassword());
         assertEquals("jamila@gmail.com",actual.getEmail());
 
-    }*/
+    }
 }
