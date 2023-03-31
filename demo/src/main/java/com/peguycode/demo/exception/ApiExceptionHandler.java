@@ -24,7 +24,7 @@ public class ApiExceptionHandler {
     };
 
     @ExceptionHandler(value = NotFoundException.class)
-    public ResponseEntity<Object> handleNotFoundException(ApiRequestException e){
+    public ResponseEntity<Object> handleNotFoundException(NotFoundException e){
         ApiException apiException = new ApiException(e.getMessage(),e, HttpStatus.NOT_FOUND, ZonedDateTime.now());
 
         return new ResponseEntity<>(apiException,  HttpStatus.NOT_FOUND);

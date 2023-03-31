@@ -8,6 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 
 @Configuration
 @EnableConfigurationProperties(InfoApp.class)
@@ -17,12 +18,16 @@ public class CustomerConfiguration {
     @Value("${info.company.name}")
     private String companyName;
 
+    @Autowired
+    private Environment environment;
+
     @Bean
-    CommandLineRunner commandLineRunner(){
+    CommandLineRunner commandLineRunner(InfoApp infoApp){
         return args -> {
             System.out.println("useFakeCustomerRepo = " + useFakeCustomerRepo);
             System.out.println("info.company.name = " + companyName);
-            //System.out.println("infoApp = " + app);
+            System.out.println("infoApp = " + infoApp);
+            System.out.println(environment.getProperty("info.app.version"));
         };
     }
     @Bean
